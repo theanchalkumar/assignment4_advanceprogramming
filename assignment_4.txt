@@ -1,0 +1,70 @@
+1.
+
+def fib_fast(n):
+    if n == 0:
+        return 0
+    if n == 1 or n == 2:
+        return 1
+    if n > 1:
+        return fib_fast(n-1) + fib_fast(n-2)
+    
+print(fib_fast(5))
+print(fib_fast(10))
+print(fib_fast(20))
+
+2.
+
+def convert_to_hex(s):
+    s = s.encode('utf-8')
+    return s.hex(' ')
+
+print(convert_to_hex("hello world"))
+print(convert_to_hex("Big Boi"))
+print(convert_to_hex("Marty Poppinson"))
+
+
+3.
+
+def uncensor(s,s1):
+    i = 0 
+    
+    for letter in s:
+        if letter == '*':
+            s = s.replace('*', s1[i],1)
+            i += 1
+    return s
+
+print(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"))
+print(uncensor("abcd", ""))
+print(uncensor("*PP*RC*S*", "UEAE"))
+
+4.
+
+import socket
+
+def get_domain(ip_address):
+    return socket.gethostbyaddr(ip_address)[0]
+
+print(get_domain("8.8.8.8"))
+print(get_domain("8.8.4.4"))
+print(get_domain("172.105.51.234"))
+
+5.
+
+def fact(n):
+    if n == 0 or n == 1:
+        return 1
+    
+    else:
+        return n * fact(n-1)
+    
+def fact_of_fact(n):
+    result = 1
+    while n > 1:
+        result *= fact(n)
+        n -= 1
+    return result   
+
+print(fact_of_fact(4)) 
+print(fact_of_fact(5))
+print(fact_of_fact(6))
